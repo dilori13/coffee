@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<style>
+   body {
+    background: url(2.jpg) no-repeat; /* Параметры фона */
+	 background-size: cover;
+	  background-attachment: fixed;
+	  
+   }
+    h1{ font-family: 'Comic Sans MS', sans-serif; }
+   @import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
+.top-menu {
+  margin: 0 60px;
+  position: relative;
+  background: #5A394E;    
+ 
+}
+.top-menu:after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+.top-menu:before {
+  top: 0;
+  border-bottom: 1px dashed rgba(255,255,255,.2);
+}
+.top-menu:after {
+  bottom: 0;
+  border-top: 1px dashed rgba(255,255,255,.2);
+}
+.menu-main {
+ font-size: xx-large;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.menu-main:before, 
+.menu-main:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 0;
+  top: 8px;
+  transform: rotate(360deg);
+  z-index: -1;
+}
+.menu-main:before {
+  left: -30px;
+  border-left: 12px solid rgba(255, 255, 255, 0);
+}
+.menu-main:after {
+  right: -30px;
+  border-right: 12px solid rgba(255, 255, 255, 0);
+}
+.menu-main li {
+  display: inline-block;
+  margin-right: -4px;
+  font-size: xx-large;
+}
+.menu-main a {
+ font-size: xx-large;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 30px;
+  font-family: 'Comic Sans MS', sans-serif;
+  color: black;
+  transition: .3s linear;
+}
+.menu-main a.current,
+.menu-main a:hover {background: rgba(0,0,0,.2);}
+@media (max-width: 680px) {
+.top-menu {margin: 0;}
+.menu-main li {
+  display: block;
+  margin-right: 0;
+ 
+}
+.menu-main:before, 
+.menu-main:after {content: none;}
+.menu-main a {display: block;}
+}
+
+  </style>
+  <link rel="shortcut icon" href="3.png"
+<meta charset="utf-8"> 
+<TITLE>Меню кофейни </TITLE>
+</HEAD>
+<BODY>
+<header>
+<h1><p align="center">Меню кофейни</h1>
+</header>
+<hr>
+<ul class="menu-main">
+<li><a href="dessert.html" align="center"><font size=6><b>Десерты</font></b></a></li>
+<li><a href="drinks.html" align="center"><font size=6><b>Напитки</font></b></a></li>
+<li><a href="cart.html"align="center"><font size=6><b>Доступно к заказу</font></b></a></li>
+</ul>
+</menu>
+<a href="index.html" onclick="history.back();return false;" class="history-back" class="menu-main"><p align="center"><img src="4.png"></a>
+</BODY>
+</HTML>
