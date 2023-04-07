@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+ <style>
+ @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+*{ margin: 0; padding: 0;}
+body{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-smoothing: antialiased;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  background:url(25.png); 
+}
+.intro{
+   background: #fff;
+   padding: 60px 30px;
+   color: #333;
+   margin-bottom: 15px;
+   line-height: 1.5;
+   text-align: center;
+}
+.intro h1 {
+   font-size: 18pt;
+   padding-bottom: 15px;
+
+}
+.intro p{
+   font-size: 14px;
+}
+
+.action{
+   text-align: center;
+   display: block;
+   margin-top: 20px;
+}
+
+a.btn {
+  text-decoration: none;
+  color: #666;
+   border: 2px solid #666;
+   padding: 10px 15px;
+   display: inline-block;
+   margin-left: 5px;
+}
+a.btn:hover{
+   background: #666;
+   color: #fff;
+    transition: .3s;
+-webkit-transition: .3s;
+}
+.btn:before{
+  font-family: FontAwesome;
+  font-weight: normal;
+  margin-right: 10px;
+}
+.github:before{content: "\f09b"}
+.down:before{content: "\f019"}
+.back:before{content:"\f112"}
+.credit{
+    background: #fff;
+    padding: 12px;
+    font-size: 9pt;
+    text-align: center;
+    color: #333;
+    margin-top: 40px;
+
+}
+.credit span:before{
+   font-family: FontAwesome;
+   color: #e41b17;
+   content: "\f004";
+
+
+}
+.credit a{
+   color: #333;
+   text-decoration: none;
+}
+.credit a:hover{
+   color: #1DBF73; 
+}
+.credit a:hover:after{
+    font-family: FontAwesome;
+    content: "\f08e";
+    font-size: 9pt;
+    position: absolute;
+    margin: 3px;
+}
+main{
+  background: #fff;
+  padding:: 20px;
+  
+}
+
+article li{
+   color: #444;
+   font-size: 15px;
+   margin-left: 33px;
+   line-height: 1.5;
+   padding: 5px;
+}
+article h1,
+article h2,
+article h3,
+article h4,
+article p{
+   padding: 14px;
+   color: #333;
+}
+article p{
+   font-size: 15px;
+    line-height: 1.5;
+}
+ 
+@media only screen and (min-width: 1166px){
+    main{
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto; 
+      padding: 24px;
+    }
+
+
+}
+
+.set-overlayer,
+.set-glass,
+.set-sticky {
+	cursor: pointer;
+	height: 45px;
+	line-height: 45px;
+	padding: 0 15px;
+	color: #333;
+	font-size: 16px;
+}
+.set-overlayer:after,
+.set-glass:after,
+.to-active:after,
+.set-sticky:after {
+	font-family: FontAwesome;
+	font-size: 18pt;
+	position: relative;
+	float: right;
+}
+.set-overlayer:after,
+.set-glass:after,
+.set-sticky:after {
+	content: "\f204";
+	transition: .6s;
+}
+
+.to-active:after {
+	content: "\f205";
+	color: #008080;
+	transition: .6s;
+}
+.set-overlayer,
+.set-glass,
+.set-sticky,
+.source,
+.theme-tray {
+	margin: 10px;
+	background: #f2f2f2;
+	border-radius: 5px;
+	border: 2px solid #f1f1f1;
+	box-sizing: border-box;
+}
+/* Syntax Highlighter*/
+
+pre.prettyprint {
+	padding: 15px !important;
+   margin: 10px;
+	border: 0 !important;
+  background: #f2f2f2;
+  overflow: auto;
+}
+
+.source {
+	white-space: pre;
+	overflow: auto;
+	max-height: 400px;
+}
+code{
+    border:1px solid #ddd;
+    padding: 2px;
+    border-radius: 2px;
+}
+nav {
+  margin-bottom: 1em !important;
+}
+
+.cart {
+  box-shadow: 0 0 5px #DDD;
+  padding: 20px;
+}
+ </style>
+    <meta charset="utf-8">
+	<meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Корзина</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css'>
+    <!-- Style CSS -->
+    
+  <link rel="shortcut icon" href="3.png">
+  </head>
+  <body>
+ <header class="intro">
+ <div class="action">
+
+ </div>
+ </header>   
+ <main>
+     <!-- Start DEMO HTML (Use the following code into your project)-->
+<div class="row">
+    <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+            <li class="name">
+                <h1><a href="#">Корзина//</a></h1>
+            </li>
+        </ul>
+        <section class="top-bar-section">
+            <ul class="left">
+                <li><a href="index.html">Сделано с любовью! &hearts;</a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+    <div class="medium-4  columns">
+        <div class="cart">
+            <h1>Товары в корзине</h1>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <button class="tiny secondary" id="clear">Очистить корзину</button>
+                </div>
+                <div class="medium-6 columns">
+                    <button class="tiny disabled" title="Оплата временно не работает.Приносим свои извинения!&hearts;">Оплатить</button>
+                </div>
+            </div>
+            <div id="cartItems">Загрузка...</div>
+            Итого: <strong id="totalPrice">0 </strong>
+        </div>
+    </div>
+    <div class="medium-8 columns">
+        <h1 align="center"> Toвары </h1>
+        <div class="products">
+            <div class="product medium-4 columns" data-name="Айс Латте" data-price="210" data-id="0">
+                <img src="7.png" alt="Айс Латте" />
+                <h3>Айс Латте</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Бабл Ти" data-price="320" data-id="1">
+                <img src="11.jpg" alt="Бабл Ти" />
+                <h3>Бабл Ти</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+            <div class="product medium-4 columns" data-name="Бабл Ти" data-price="370" data-id="2">
+                <img src="12.png"alt="Бабл Ти" />
+                <h3>Бабл Ти</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+			<div class="product medium-4 columns" data-name="Пирожное "Медовик"" data-price="200" data-id="3">
+                <img src="9.png"alt="Пирожное "Медовик"" />
+                <h3>Пирожное "Медовик"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+			<div class="product medium-4 columns" data-name="Пирожное "Ореховое"" data-price="150" data-id="4">
+                <img src="8.png"alt="Пирожное "Ореховое"" />
+                <h3>Пирожное "Ореховое"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+			<div class="product medium-4 columns" data-name="Пирожное"Красный бархат"" data-price="150" data-id="5">
+                <img src="10.png"alt="Пирожное "Красный бархат"" />
+                <h3>"Пирожное"Красный бархат""</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+				</div>
+				<div class="product medium-4 columns" data-name="Ванильное пирожное "Эскимо"" data-price="250" data-id="6">
+                <img src="15.png"alt=Ванильное пирожное "Эскимо"/>
+                <h3>Ванильное пирожное "Эскимо"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+			<div class="product medium-4 columns" data-name="Пирожное кокосовое "Тропик"" data-price="100" data-id="7">
+                <img src="17.png"alt="Пирожное кокосовое "Тропик"" />
+                <h3> Пирожное кокосовое "Тропик"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+				</div>
+				<div class="product medium-4 columns" data-name="Морковное пирожное" data-price="200" data-id="8">
+                <img src="13.png"alt="Морковное пирожное"/>
+                <h3>"Морковное пирожное"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+			<div class="product medium-4 columns" data-name="Молочно-шоколадное" data-price="200" data-id="8">
+                <img src="16.png"alt="Молочно-шоколадное"/>
+                <h3>"Молочно-шоколадное"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+            </div>
+			 </div>
+				<div class="product medium-4 columns" data-name="Пина колада" data-price="200" data-id="10">
+                <img src="6.png"alt="Торт в стаканчике "Пина колада"" />
+                <h3>"Пина колада"</h3>
+                <input type="text" class="count" value="1" />
+                <button class="tiny">Добавить в корзину</button>
+				
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/template" id="cartT">
+  <% _.each(items, function (item) { %> <div class = "panel"> <h3> <%= item.name %> </h3>  <span class="label">
+<%= item.count %>  <% if(item.count > 1)
+{%>
+<%}%> за <%= item.total %>₽</span ></div>
+<% }); %>
+</script>
+
+
+     <!-- END EDMO HTML (Happy Coding!)-->
+ </main>
+ <footer class="credit">: <a title="Awesome web design code & scripts" href="https://www.codehim.com?source=demo-page" target="_blank"></a></footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
+<script>var cartId = "cart";
+
+var localAdapter = {
+
+    saveCart: function (object) {
+
+        var stringified = JSON.stringify(object);
+        localStorage.setItem(cartId, stringified);
+        return true;
+
+    },
+    getCart: function () {
+
+        return JSON.parse(localStorage.getItem(cartId));
+
+    },
+    clearCart: function () {
+
+        localStorage.removeItem(cartId);
+
+    }
+
+};
+
+var ajaxAdapter = {
+
+    saveCart: function (object) {
+
+        var stringified = JSON.stringify(object);
+        // do an ajax request here
+
+    },
+    getCart: function () {
+
+        // do an ajax request -- recognize user by cookie / ip / session
+        return JSON.parse(data);
+
+    },
+    clearCart: function () {
+
+        //do an ajax request here
+
+    }
+
+};
+
+var storage = localAdapter;
+
+var helpers = {
+
+    getHtml: function (id) {
+
+        return document.getElementById(id).innerHTML;
+
+    },
+    setHtml: function (id, html) {
+
+        document.getElementById(id).innerHTML = html;
+        return true;
+
+    },
+    itemData: function (object) {
+
+        var count = object.querySelector(".count"),
+            patt = new RegExp("^[1-9]([0-9]+)?₽");
+        count.value = (patt.test(count.value) === true) ? parseInt(count.value) : 1;
+
+        var item = {
+
+            name: object.getAttribute('data-name'),
+            price: object.getAttribute('data-price'),
+            id: object.getAttribute('data-id'),
+            count: count.value,
+            total: parseInt(object.getAttribute('data-price')) * parseInt(count.value)
+
+        };
+        return item;
+
+    },
+    updateView: function () {
+
+        var items = cart.getItems(),
+            template = this.getHtml('cartT'),
+            compiled = _.template(template, {
+                items: items
+            });
+        this.setHtml('cartItems', compiled);
+        this.updateTotal();
+
+    },
+    emptyView: function () {
+
+        this.setHtml('cartItems', '<p>Здесь ничего нет!</p>');
+        this.updateTotal();
+
+    },
+    updateTotal: function () {
+
+        this.setHtml('totalPrice', cart.total + '₽');
+
+    }
+
+};
+
+var cart = {
+
+    count: 0,
+    total: 0,
+    items: [],
+    getItems: function () {
+
+        return this.items;
+
+    },
+    setItems: function (items) {
+
+        this.items = items;
+        for (var i = 0; i < this.items.length; i++) {
+            var _item = this.items[i];
+            this.total += _item.total;
+        }
+
+    },
+    clearItems: function () {
+
+        this.items = [];
+        this.total = 0;
+        storage.clearCart();
+        helpers.emptyView();
+
+    },
+    addItem: function (item) {
+
+        if (this.containsItem(item.id) === false) {
+
+            this.items.push({
+                id: item.id,
+                name: item.name,
+                price: item.price,
+                count: item.count,
+                total: item.price * item.count
+            });
+
+            storage.saveCart(this.items);
+
+
+        } else {
+
+            this.updateItem(item);
+
+        }
+        this.total += item.price * item.count;
+        this.count += item.count;
+        helpers.updateView();
+
+    },
+    containsItem: function (id) {
+
+        if (this.items === undefined) {
+            return false;
+        }
+
+        for (var i = 0; i < this.items.length; i++) {
+
+            var _item = this.items[i];
+
+            if (id == _item.id) {
+                return true;
+            }
+
+        }
+        return false;
+
+    },
+    updateItem: function (object) {
+
+        for (var i = 0; i < this.items.length; i++) {
+
+            var _item = this.items[i];
+
+            if (object.id === _item.id) {
+
+                _item.count = parseInt(object.count) + parseInt(_item.count);
+                _item.total = parseInt(object.total) + parseInt(_item.total);
+                this.items[i] = _item;
+                storage.saveCart(this.items);
+
+            }
+
+        }
+
+    }
+
+};
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    if (storage.getCart()) {
+
+        cart.setItems(storage.getCart());
+        helpers.updateView();
+
+    } else {
+
+        helpers.emptyView();
+
+    }
+    var products = document.querySelectorAll('.product button');
+    [].forEach.call(products, function (product) {
+
+        product.addEventListener('click', function (e) {
+
+            var item = helpers.itemData(this.parentNode);
+            cart.addItem(item);
+
+
+        });
+
+    });
+
+    document.querySelector('#clear').addEventListener('click', function (e) {
+
+        cart.clearItems();
+
+    });
+
+
+});</script>
+      
+  </body>
+</html>
