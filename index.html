@@ -1,157 +1,80 @@
 <!DOCTYPE html>
 <HTML>
 <HEAD>
-<style>
-.dropbtn {
- display: inline-block;
- 
-
-    background-color: none;
-    color: none;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-}
-
-.dropdown {
-    text-decoration: none;
-    position: relative;
-    display: inline-block;
-	align:center;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: bisque;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px ;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: none;}
-
-.dropdown:hover .dropdown-content {display: block;align:center;}
-
-.dropdown:hover .dropbtn {background-color: none;}
-</style>
-<style>
-body {
-    background: url(25.jpg) no-repeat; /* Параметры фона */
-	 background-size: cover;
-	 background-attachment: fixed;
-   }
-    h1{ font-family: 'Comic Sans MS', sans-serif; }
-   @import url('https://fonts.googleapis.com/css?family=PT+Sans+Caption');
-.top-menu {
-  margin: 0 60px;
-  position: relative;
-  background: #5A394E;    
- 
-}
-.top-menu:before,
-.top-menu:after {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  width: 100%;
-  height: 3px;
-}
-.top-menu:before {
-  top: 0;
-  border-bottom: 1px dashed rgba(255,255,255,.2);
-}
-.top-menu:after {
-  bottom: 0;
-  border-top: 1px dashed rgba(255,255,255,.2);
-}
-.menu-main {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-}
-.menu-main:before, 
-.menu-main:after {
-  content: "";
-  position: absolute;
-  width: 50px;
-  height: 0;
-  top: 8px;
-  transform: rotate(360deg);
-  z-index: -1;
-}
-.menu-main:before {
-  left: -30px;
-  border-left: 12px solid rgba(255, 255, 255, 0);
-}
-.menu-main:after {
-  right: -30px;
-  border-right: 12px solid rgba(255, 255, 255, 0);
-}
-.menu-main li {
-  display: inline-block;
-  margin-right: -4px;
-}
-.menu-main a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px 30px;
-  font-family: 'Comic Sans MS', sans-serif;
-  color: black;
-  transition: .3s linear;
-}
-.menu-main a.current,
-.menu-main a:hover {background: rgba(0,0,0,.2);}
-@media (max-width: 680px) {
-.top-menu {margin: 0;}
-.menu-main li {
-  display: block;
-  margin-right: 0;
-}
-.menu-main:before, 
-.menu-main:after {content: none;}
-.menu-main a {display: block;}
-}
-</style>
-<link rel="shortcut icon" href="3.png">
+<link rel="shortcut icon" href="4.png">
+ <link rel="stylesheet" href="style.css">
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 <TITLE>Главная</TITLE>
 </HEAD>
 <BODY>
-<body background="26.jpg">
 <header>
-<h1><p align="center"><b>Кофейня "Прянный мокко"</b></h1>
-<a href="cart.html" ><p align="center"><img src="5.png"></a>
-<header>
-<ul class="menu-main">
-<div class="dropdown">
-<li class="dropbtn"> 
-<li><a href="About Us.html" ><h2>О нас</h2></a></li>
-  <li> <h2><a href="menu1.html">Меню</h2></a>
-  <li><h2> <a href="Contacts.html">Контакты</h2></a></li>
-  <li> </li>
-  <ul>
-  <div class="dropdown-content">
-  <div class="dropdown">
-  <ul class="menu-main">
-  <li><a href="drinks.html">Напитки</a></li>
-  <li><a href="dessert.html">Десерты</a></li>
- <li><a href="cart.html">Доступно к заказу</a></li>
- </div>
-</div>
-  </div>
-</div>
-</ul>
-</header>
+    <nav>
+      <ul>
+	   <div class="button-container">
+	  <div class="dropdown">
+        <button class="dropbtn">Главная</button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Меню</button>
+        <div class="dropdown-content">
+            <a href="drink.html">Напитки</a>
+            <a href="dessert.html">Десерты</a>
+            <a href="cart.html">Доступно к заказу</a>
+        </div>
+    </div>
+
+    
+    <div class="dropdown">
+        <button class="dropbtn"><a href="About.html">О нас</a></button>
+    </div>
+
+    <div class="dropdown">
+        <button class="dropbtn"><a href="contact.html">Контакты</a></button>
+    </div>
+
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="hero">
+      <h1>Добро пожаловать в кофейню "Пряный Мокко"</h1>
+      <p>Наша мечта - предлагать гостям качественный кофе по демократичной цене, в непринужденной и дружелюбной атмосфере. Стать островком спокойствия и уединения среди городского шума.</p>
+      <a href="cart.html" class="button"> Вперёд за кофе! </a>
+    </section>
+
+
+    <section id="about">
+      <h2>О нас</h2>
+      <p><b><i>Наша мечта - предлагать гостям качественный кофе по демократичной цене, в непринужденной и дружелюбной атмосфере. Стать островком спокойствия и уединения среди городского шума,незабываемый вкус и уютную атмосферу.</i></b></p>
+    </section>
+
+    <section id="contact">
+      <h2>Контакты</h2>
+      <p>Адрес:пр.Строителей 16,этаж 1</p>
+      <p>Телефон: <a href="tel: +7(983)170-08-29"> +7(983)170-08-29</a></p>
+      <p>Email: <a href="mailto:polinos1@vk.com">polinos1@vk.com</a></p>
+    </section>
+  </main>
+  <footer>
+  <p>Профили в социальных сетях:</p> 
+	  	 	     <div class="vk"> 
+	  	 	 	     <a href="https://vk.com/public219763680"> 
+	  	 	 	     <img src="1.png" alt="Вконтакте"> 
+	  	 	 	 	 </a> 
+	  	 	 	 	 <a href="#"> 
+	  	 	 	 	 <img src="2.png" alt="insta"> 
+	  	 	 	 	 </a> 
+	  	 	 	 	 <a href="#"> 
+	  	 	 	 	 <img src="3.png" alt="insta"> 
+	  	 	 	 	 </a> 
+	  	 	 	 	 
+	  	 	 	 	 
+	 	 	 	 </div> 
+	 	 	 </div> 
+
+    <p>&copy; 2023 Пряный Мокко. Все права защищены.</p>
+  </footer>
 </BODY>
 </HTML> 
  
