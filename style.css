@@ -144,9 +144,10 @@ nav a {
   height: 200px;
   border-radius: 50px;
   background-color: transparent;
-  border: 5px solid #ffffff;
+  border: 3px solid #ffffff;
   text-decoration:none;
   color: #ffffff;
+padding:7px;
   font-size: 24px;
   text-align: center;
   line-height: 25px;
