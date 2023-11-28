@@ -205,9 +205,9 @@ nav {
     <title>Корзина</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/foundation/5.0.2/css/foundation.css'>
-    <!-- Style CSS -->
-    
-  <link rel="shortcut icon" href="4.png">
+    <!-- Style CSS -->  
+	<link rel="shortcut icon" href="4.png">
+ <link rel="stylesheet" href="style.css">
   </head>
   <body>
  <header class="intro">
@@ -239,7 +239,7 @@ nav {
                     <button class="tiny secondary" id="clear">Очистить корзину</button>
                 </div>
                 <div class="medium-6 columns">
-                    <button class="tiny disabled" title="Оплата временно не работает.Приносим свои извинения!&hearts;">Оплатить</button>
+                    <button class="tiny disabled" title="Work in progress">Оплатить</button>
                 </div>
             </div>
             <div id="cartItems">Загрузка...</div>
@@ -267,21 +267,21 @@ nav {
                 <input type="text" class="count" value="1" />
                 <button class="tiny">Добавить в корзину</button>
             </div>
-			<div class="product medium-4 columns" data-name="Пирожное "Медовик"" data-price="200" data-id="3">
+			<div class="product medium-4 columns" data-name="Пирожное "Медовик" data-price="200" data-id="3">
                 <img src="9.png"alt="Пирожное "Медовик"" />
                 <h3>Пирожное "Медовик"</h3>
                 <input type="text" class="count" value="1" />
                 <button class="tiny">Добавить в корзину</button>
             </div>
-			<div class="product medium-4 columns" data-name="Пирожное "Ореховое"" data-price="150" data-id="4">
+			<div class="product medium-4 columns" data-name="Ореховое" data-price="150" data-id="4">
                 <img src="8.png"alt="Пирожное "Ореховое"" />
                 <h3>Пирожное "Ореховое"</h3>
                 <input type="text" class="count" value="1" />
                 <button class="tiny">Добавить в корзину</button>
             </div>
-			<div class="product medium-4 columns" data-name="Пирожное"Красный бархат"" data-price="150" data-id="5">
-                <img src="10.png"alt="Пирожное "Красный бархат"" />
-                <h3>"Пирожное"Красный бархат""</h3>
+			<div class="product medium-4 columns" data-name="Красный бархат" data-price="150" data-id="5">
+                <img src="10.png"alt="Пирожное Красный бархат" />
+                <h3>"Пирожное Красный бархат"</h3>
                 <input type="text" class="count" value="1" />
                 <button class="tiny">Добавить в корзину</button>
 				</div>
@@ -335,234 +335,7 @@ nav {
  <footer class="credit">: <a title="Awesome web design code & scripts" href="https://www.codehim.com?source=demo-page" target="_blank"></a></footer>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'></script>
-<script>var cartId = "cart";
-
-var localAdapter = {
-
-    saveCart: function (object) {
-
-        var stringified = JSON.stringify(object);
-        localStorage.setItem(cartId, stringified);
-        return true;
-
-    },
-    getCart: function () {
-
-        return JSON.parse(localStorage.getItem(cartId));
-
-    },
-    clearCart: function () {
-
-        localStorage.removeItem(cartId);
-
-    }
-
-};
-
-var ajaxAdapter = {
-
-    saveCart: function (object) {
-
-        var stringified = JSON.stringify(object);
-        // do an ajax request here
-
-    },
-    getCart: function () {
-
-        // do an ajax request -- recognize user by cookie / ip / session
-        return JSON.parse(data);
-
-    },
-    clearCart: function () {
-
-        //do an ajax request here
-
-    }
-
-};
-
-var storage = localAdapter;
-
-var helpers = {
-
-    getHtml: function (id) {
-
-        return document.getElementById(id).innerHTML;
-
-    },
-    setHtml: function (id, html) {
-
-        document.getElementById(id).innerHTML = html;
-        return true;
-
-    },
-    itemData: function (object) {
-
-        var count = object.querySelector(".count"),
-            patt = new RegExp("^[1-9]([0-9]+)?₽");
-        count.value = (patt.test(count.value) === true) ? parseInt(count.value) : 1;
-
-        var item = {
-
-            name: object.getAttribute('data-name'),
-            price: object.getAttribute('data-price'),
-            id: object.getAttribute('data-id'),
-            count: count.value,
-            total: parseInt(object.getAttribute('data-price')) * parseInt(count.value)
-
-        };
-        return item;
-
-    },
-    updateView: function () {
-
-        var items = cart.getItems(),
-            template = this.getHtml('cartT'),
-            compiled = _.template(template, {
-                items: items
-            });
-        this.setHtml('cartItems', compiled);
-        this.updateTotal();
-
-    },
-    emptyView: function () {
-
-        this.setHtml('cartItems', '<p>Здесь ничего нет!</p>');
-        this.updateTotal();
-
-    },
-    updateTotal: function () {
-
-        this.setHtml('totalPrice', cart.total + '₽');
-
-    }
-
-};
-
-var cart = {
-
-    count: 0,
-    total: 0,
-    items: [],
-    getItems: function () {
-
-        return this.items;
-
-    },
-    setItems: function (items) {
-
-        this.items = items;
-        for (var i = 0; i < this.items.length; i++) {
-            var _item = this.items[i];
-            this.total += _item.total;
-        }
-
-    },
-    clearItems: function () {
-
-        this.items = [];
-        this.total = 0;
-        storage.clearCart();
-        helpers.emptyView();
-
-    },
-    addItem: function (item) {
-
-        if (this.containsItem(item.id) === false) {
-
-            this.items.push({
-                id: item.id,
-                name: item.name,
-                price: item.price,
-                count: item.count,
-                total: item.price * item.count
-            });
-
-            storage.saveCart(this.items);
-
-
-        } else {
-
-            this.updateItem(item);
-
-        }
-        this.total += item.price * item.count;
-        this.count += item.count;
-        helpers.updateView();
-
-    },
-    containsItem: function (id) {
-
-        if (this.items === undefined) {
-            return false;
-        }
-
-        for (var i = 0; i < this.items.length; i++) {
-
-            var _item = this.items[i];
-
-            if (id == _item.id) {
-                return true;
-            }
-
-        }
-        return false;
-
-    },
-    updateItem: function (object) {
-
-        for (var i = 0; i < this.items.length; i++) {
-
-            var _item = this.items[i];
-
-            if (object.id === _item.id) {
-
-                _item.count = parseInt(object.count) + parseInt(_item.count);
-                _item.total = parseInt(object.total) + parseInt(_item.total);
-                this.items[i] = _item;
-                storage.saveCart(this.items);
-
-            }
-
-        }
-
-    }
-
-};
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    if (storage.getCart()) {
-
-        cart.setItems(storage.getCart());
-        helpers.updateView();
-
-    } else {
-
-        helpers.emptyView();
-
-    }
-    var products = document.querySelectorAll('.product button');
-    [].forEach.call(products, function (product) {
-
-        product.addEventListener('click', function (e) {
-
-            var item = helpers.itemData(this.parentNode);
-            cart.addItem(item);
-
-
-        });
-
-    });
-
-    document.querySelector('#clear').addEventListener('click', function (e) {
-
-        cart.clearItems();
-
-    });
-
-
-});</script>
+<script  src="./js/script.js"></script>
       
   </body>
 </html>
